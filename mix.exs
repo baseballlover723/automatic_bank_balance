@@ -23,7 +23,9 @@ defmodule AutomaticBankBalance.MixProject do
   defp deps do
     [
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false}, # static code analysis
-      {:flow, "~> 1.0"},
+      {:flow, "~> 1.0"}, # collection iteration
+      {:money, "~> 1.7"}, # money library
+      {:typed_struct, "~> 0.2.1"}, # easy typed structs
     ]
   end
 end

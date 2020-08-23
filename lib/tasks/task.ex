@@ -1,13 +1,15 @@
 defmodule Mix.Tasks.Abb.MaintainBalance do
   use Mix.Task
 
+  alias AutomaticBankBalance.Bank
+
   @shortdoc "this is my task"
   @impl Mix.Task
   def run(_args) do
     IO.puts("I'm running the task")
 
-    acc1 = %{:id => 1}
-    acc2 = %{:id => 2}
+    acc1 = %Bank.AccountInfo{id: 1}
+    acc2 = %Bank.AccountInfo{id: 2}
     maintain_balances([acc1, acc2])
   end
 
@@ -42,56 +44,56 @@ defmodule Mix.Tasks.Abb.MaintainBalance do
 
   def login(state) do
     %{:account_info => account_info} = state
-    IO.puts "TODO login for #{account_info[:id]}"
+    IO.puts "TODO login for #{account_info.id}"
 
     state
   end
 
   def login_successful?(state) do
     %{:account_info => account_info} = state
-    IO.puts "TODO login successful? for #{account_info[:id]}"
+    IO.puts "TODO login successful? for #{account_info.id}"
 
     true
   end
 
   def get_balances(state) do
     %{:account_info => account_info} = state
-    IO.puts "TODO get balances for #{account_info[:id]}"
+    IO.puts "TODO get balances for #{account_info.id}"
 
     Map.put(state, :balance, 15)
   end
 
   def calculate_transactions(state) do
     %{:account_info => account_info, :balance => balance} = state
-    IO.puts "TODO has transactions? for #{account_info[:id]}, balance: #{balance}"
+    IO.puts "TODO has transactions? for #{account_info.id}, balance: #{balance}"
 
     state
   end
 
   def has_transactions?(state) do
     %{:account_info => account_info, :balance => balance} = state
-    IO.puts "TODO calculating transactions for #{account_info[:id]}, balance: #{balance}"
+    IO.puts "TODO calculating transactions for #{account_info.id}, balance: #{balance}"
 
     true
   end
 
   def make_transactions(state) do
     %{:account_info => account_info, :balance => balance} = state
-    IO.puts "TODO making transactions for #{account_info[:id]}, balance: #{balance}"
+    IO.puts "TODO making transactions for #{account_info.id}, balance: #{balance}"
 
     state
   end
 
   def verify_transactions(state) do
     %{:account_info => account_info, :balance => balance} = state
-    IO.puts "TODO verifying transactions for #{account_info[:id]}, balance: #{balance}"
+    IO.puts "TODO verifying transactions for #{account_info.id}, balance: #{balance}"
 
     state
   end
 
   def notify(state) do
     %{:account_info => account_info, :balance => balance} = state
-    IO.puts "TODO notifying for #{account_info[:id]}, balance: #{balance}"
+    IO.puts "TODO notifying for #{account_info.id}, balance: #{balance}"
 
     state
   end
