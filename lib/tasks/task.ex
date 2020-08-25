@@ -11,8 +11,8 @@ defmodule Mix.Tasks.Abb.MaintainBalance do
   def run(_args) do
     IO.puts("I'm running the task")
 
-    acc1 = %AutomaticBankBalance.Params{id: 1}
-    acc2 = %AutomaticBankBalance.Params{id: 2}
+    acc1 = %Bank.Params{id: 1}
+    acc2 = %Bank.Params{id: 2}
     maintain_balances([acc1, acc2])
   end
 
