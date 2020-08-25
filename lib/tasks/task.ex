@@ -22,20 +22,20 @@ defmodule Mix.Tasks.Abb.MaintainBalance do
     |> Enum.take(1)
     |> Flow.from_enumerable(max_demand: 1, min_demand: 0)
     |> Flow.map(&init/1)
-    |> Flow.partition
-    |> Flow.map(&login/1)
-    |> Flow.filter(&login_successful?/1)
-    |> Flow.partition
+    # |> Flow.partition
+    # |> Flow.map(&login/1)
+    # |> Flow.filter(&login_successful?/1)
+    # |> Flow.partition
     |> Flow.map(&get_balances/1)
-    |> Flow.partition
-    |> Flow.map(&calculate_transactions/1)
-    |> Flow.filter(&has_transactions?/1)
-    |> Flow.partition
-    |> Flow.map(&make_transactions/1)
-    |> Flow.partition
-    |> Flow.map(&verify_transactions/1)
-    |> Flow.partition
-    |> Flow.map(&notify/1)
+    # |> Flow.partition
+    # |> Flow.map(&calculate_transactions/1)
+    # |> Flow.filter(&has_transactions?/1)
+    # |> Flow.partition
+    # |> Flow.map(&make_transactions/1)
+    # |> Flow.partition
+    # |> Flow.map(&verify_transactions/1)
+    # |> Flow.partition
+    # |> Flow.map(&notify/1)
     |> Flow.map(fn state -> IO.inspect(state, label: "end state") end)
     |> Flow.run
 
@@ -63,7 +63,10 @@ defmodule Mix.Tasks.Abb.MaintainBalance do
     %{:account_info => account_info} = state
     IO.puts "TODO get balances for #{account_info.id}"
 
-    Map.put(state, :balance, 15)
+    account_balances = AutomaticBankBalance.Processor.Bank.Balance.get_account_balances(account_info)
+
+    Map.put(state, :accounts, account_balances)
+    # Map.put(state, :account_balances, account_balances)
   end
 
   def calculate_transactions(state) do

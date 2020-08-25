@@ -35,6 +35,7 @@ defmodule AutomaticBankBalance.MixProject do
     [
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false}, # static code analysis
       {:ecto_sql, "~> 3.4"}, # phoenix
+      {:floki, "~> 0.27.0"}, # http parsing
       {:flow, "~> 1.0"}, # collection iteration
       {:gettext, "~> 0.11"}, # phoenix
       {:jason, "~> 1.0"}, # phoenix
