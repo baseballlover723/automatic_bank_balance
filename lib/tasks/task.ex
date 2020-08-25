@@ -1,15 +1,18 @@
 defmodule Mix.Tasks.Abb.MaintainBalance do
   use Mix.Task
 
-  alias AutomaticBankBalance.Bank
+  alias AutomaticBankBalance.{
+    Bank,
+    Processor
+  }
 
   @shortdoc "this is my task"
   @impl Mix.Task
   def run(_args) do
     IO.puts("I'm running the task")
 
-    acc1 = %Bank.AccountInfo{id: 1}
-    acc2 = %Bank.AccountInfo{id: 2}
+    acc1 = %AutomaticBankBalance.Params{id: 1}
+    acc2 = %AutomaticBankBalance.Params{id: 2}
     maintain_balances([acc1, acc2])
   end
 

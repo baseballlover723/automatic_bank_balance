@@ -1,4 +1,4 @@
-defmodule AutomaticBankBalance.Bank.AccountInfo do
+defmodule AutomaticBankBalance.Params do
   use TypedStruct
 
   typedstruct enforce: true do
