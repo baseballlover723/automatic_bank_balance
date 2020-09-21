@@ -38,6 +38,7 @@ defmodule AutomaticBankBalance.MixProject do
       {:floki, "~> 0.27.0"}, # http parsing
       {:flow, "~> 1.0"}, # collection iteration
       {:gettext, "~> 0.11"}, # phoenix
+      {:hound, "~> 1.0"}, # browser automation
       {:jason, "~> 1.0"}, # phoenix
       {:money, "~> 1.7"}, # money library
       {:postgrex, ">= 0.0.0"}, # phoenix

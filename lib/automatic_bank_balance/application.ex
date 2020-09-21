@@ -19,6 +19,7 @@ defmodule AutomaticBankBalance.Application do
       # {AutomaticBankBalance.Worker, arg}
     ]
 
+    Application.start :hound
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: AutomaticBankBalance.Supervisor]
